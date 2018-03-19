@@ -1,4 +1,4 @@
-import { Hero } from "../organisms";
+import { Hero } from '../organisms';
 
 export default ({ children, ...data }) => {
   return (

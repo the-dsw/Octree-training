@@ -1,0 +1,30 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jsx-a11y/recommended", "google"],
+  "parser": "babel-eslint",
+
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": ["react", "jsx-a11y"],
+  "globals": {
+    "alert": true,
+    "confirm": true,
+    "FormData": true,
+    "XMLHttpRequest": true,
+    "document": true
+  },
+  "rules": {
+    "no-alert": 0,
+    "no-invalid-this": "off",
+    "no-use-before-define": [2],
+    "prefer-const": 1,
+    "complexity": [1, 10],
+    "react/prefer-es6-class": 0,
+    "react/jsx-filename-extension": 0,
+    "max-len": [2, 110]
+  }
+}

@@ -1,7 +1,7 @@
-import Head from "../components/head";
-import getData from "../hoc/getData";
-import { Banner } from "../components/templates";
-import "../styles/index.scss";
+import Head from '../components/head';
+import getData from '../hoc/getData';
+import { Banner } from '../components/templates';
+import '../styles/index.scss';
 
 const Home = ({ data }) => {
   console.log({ data });
@@ -10,7 +10,7 @@ const Home = ({ data }) => {
       <Head title="Home" />
       <div className="pHome">
         <Banner {...data} />
-        {"Place Footer here"}
+        {'Place Footer here'}
       </div>
     </div>
   );

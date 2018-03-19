@@ -1,4 +1,4 @@
-import { Image } from "../atoms";
+import { Image } from '../atoms';
 export default ({ children, image }) => {
   return (
     <div className="oHero">
