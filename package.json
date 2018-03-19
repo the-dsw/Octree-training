@@ -1,0 +1,18 @@
+{
+  "name": "octree-training-project",
+  "version": "1.0.0",
+  "description": "Training project for Octree dev",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^0.1.1",
+    "next": "5.0.0",
+    "node-sass": "^4.7.2",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "svg-inline-loader": "^0.8.0"
+  }
+}
