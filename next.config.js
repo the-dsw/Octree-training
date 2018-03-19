@@ -1,20 +1,20 @@
-const withSass = require("@zeit/next-sass");
+const withSass = require('@zeit/next-sass');
 
 const conf = withSass({
   cssModules: false,
   sassLoaderOptions: {
-    includePaths: ["styles", "node_modules"]
+    includePaths: ['styles', 'node_modules'],
   },
-  webpack(config, { dev }) {
+  webpack(config, {dev}) {
     config.node = {
-      fs: "empty"
+      fs: 'empty',
     };
     config.module.rules.push({
       test: /\.svg$/,
-      loader: "svg-inline-loader"
+      loader: 'svg-inline-loader',
     });
     return config;
-  }
+  },
 });
 
 module.exports = conf;

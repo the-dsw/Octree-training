@@ -25,6 +25,7 @@
     "complexity": [1, 10],
     "react/prefer-es6-class": 0,
     "react/jsx-filename-extension": 0,
+    "react/react-in-jsx-scope": 0,
     "max-len": [2, 110]
   }
 }

@@ -1,10 +1,10 @@
 import NextHead from 'next/head';
-import { string } from 'prop-types';
+import {string} from 'prop-types';
 const defaultDescription = '';
 const defaultOGURL = '';
 const defaultOGImage = '';
 
-const Head = props => (
+const Head = (props) => (
   <NextHead>
     <meta charSet="UTF-8" />
     <title>{props.title || ''}</title>
@@ -29,10 +29,10 @@ const Head = props => (
 );
 
 Head.propTypes = {
-  title: string,
+  title: string.isRequired,
   description: string,
   url: string,
   ogImage: string,
 };
-
+Head.displayName = 'Head';
 export default Head;

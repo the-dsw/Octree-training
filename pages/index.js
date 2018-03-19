@@ -1,10 +1,12 @@
 import Head from '../components/head';
 import getData from '../hoc/getData';
-import { Banner } from '../components/templates';
-import '../styles/index.scss';
+import PropTypes from 'prop-types';
+import {Banner} from '../components/templates';
 
-const Home = ({ data }) => {
-  console.log({ data });
+const Home = ({data}) => {
+  // eslint-disable-next-line no-console
+  console.log({data});
+
   return (
     <div>
       <Head title="Home" />
@@ -14,6 +16,13 @@ const Home = ({ data }) => {
       </div>
     </div>
   );
+};
+
+Home.displayName = 'HomePage';
+Home.propTypes = {
+  data: PropTypes.shape({
+    banner: PropTypes.object.isRequired,
+  }),
 };
 
 export default getData(Home);
