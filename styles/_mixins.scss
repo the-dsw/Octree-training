@@ -1,0 +1,20 @@
+// Media queries
+@mixin bp($point) {
+  @if $point == small {
+    @media (max-width: $bpSM) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (max-width: $bpMD) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (max-width: $bpLG) {
+      @content;
+    }
+  } @else if $point == xlarge {
+    @media (max-width: $bpXL) {
+      @content;
+    }
+  }
+}

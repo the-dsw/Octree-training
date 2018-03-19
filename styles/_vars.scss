@@ -1,0 +1,14 @@
+/* Colors */
+$white: #ffffff;
+$black: #000000;
+$lightGrey: #eeeeee;
+$mediumGrey: #bdbdbd;
+$darkGrey: #616161;
+$primary: #000000;
+$primaryLight: transparentize($primary, 0.4);
+$secondary: #ffffff;
+/* Breakpoints */
+$bpSM: 600px;
+$bpMD: 960px;
+$bpLG: 1280px;
+$bpXL: 1920px;

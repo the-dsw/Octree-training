@@ -1,234 +1,131 @@
-This project was bootstrapped with [Create Next App](https://github.com/segmentio/create-next-app).
+# Training
 
-Find the most recent version of this guide at [here](https://github.com/segmentio/create-next-app/blob/master/lib/templates/default/README.md). And check out [Next.js repo](https://github.com/zeit/next.js) for the most up-to-date info.
+Ce dépôt héberge un ensemble de fichiers permettant de s'entraîner / de se tester
+dans le développement d'application frontend avec des technologies modernes (notamment React et SCSS).
 
-## Table of Contents
+L'objectif est de réaliser le footer correspondant à cette maquette : https://projects.invisionapp.com/d/main#/projects/prototypes/13574471.
+Le résultat doit:
 
-- [Questions? Feedback?](#questions-feedback)
-- [Folder Structure](#folder-structure)
-- [Available Scripts](#available-scripts)
-  - [npm run dev](#npm-run-dev)
-  - [npm run build](#npm-run-build)
-  - [npm run start](#npm-run-start)
-- [Using CSS](#using-css)
-- [Adding Components](#adding-components)
-- [Fetching Data](#fetching-data)
-- [Custom Server](#custom-server)
-- [Syntax Highlighting](#syntax-highlighting)
-- [Using the `static` Folder](#using-the-static-folder)
-- [Deploy to Now](#deploy-to-now)
-- [Something Missing?](#something-missing)
+* Être **responsive**
+* Avoir le moins possible de code mort / inutile
+* Être valide selon les règles définies dans le fichier `.eslintrc`
+* Respecter la nomenclature des classes définie dans ce fichier
 
-## Questions? Feedback?
+# Quick-start
 
-Check out [Next.js FAQ & docs](https://github.com/zeit/next.js#faq) or [let us know](https://github.com/segmentio/create-next-app/issues) your feedback.
-
-## Folder Structure
-
-After creating an app, it should look something like:
-
-```
-my-app/
-  README.md
-  package.json
-  next.config.js
-  components/
-    head.js
-    nav.js
-  pages/
-    index.js
-  static/
-    favicon.ico
+```bash
+git clone <repo> octree-training
+cd octree-training
+npm install
+npm run dev
+# > http://localhost:3000
 ```
 
-Routing in Next.js is based on the file system, so `./pages/index.js` maps to the `/` route and
-`./pages/about.js` would map to `/about`.
+# Utilisation
 
-The `./static` directory maps to `/static` in the `next` server, so you can put all your
-other static resources like images or compiled CSS in there.
+## Découpage des composants
 
-Out of the box, we get:
+Nous utilisons un découpage des composants inspiré de la méthode Atomic BEM (ABEM)
+avec des _pages_ composées de 4 niveaux de composants:
 
-- Automatic transpilation and bundling (with webpack and babel)
-- Hot code reloading
-- Server rendering and indexing of `./pages`
-- Static file serving. `./static/` is mapped to `/static/`
+* _atom_: Micro-composant (visuel ou fonctionnel) assurant une unique fonction (Exemples: image, paragraph, title, icon)
+* _molecule_: Composant relativement petit composé d'atomes (Exemples: carte, button)
+* _organisms_: Bloc visuel composant une page, constitué de molecules (Exemples: grille de cartes, formulaire de contact)
+* _templates_: Bloc logique d'organismes. Parfois facultatif, on peut utiliser des organismes directement au niveau des page (Exemples: footer, navbar, bannière).
+  Un template peut être vu comme une strate / section de page.
 
-Read more about [Next's Routing](https://github.com/zeit/next.js#routing)
+> L'objectif du découpage est d'avoir des fichiers / composants les plus génériques possibles pour ne pas
+> avoir a ré-inventer la roue à chaque fois. De plus, cela apporte une facilité de compréhension et limite
+> les conflits avec git.
 
-## Available Scripts
+## Création d'un composant
 
-In the project directory, you can run:
+1.  Créer un fichier `<nom-du-composant>.js` dans le bon dossier de composants (atoms, molecules, organisms, templates).
+2.  Ajouter le fichier à l'index dans le même dossier
+    Exemple: `export { default as Hero } from "./hero";`
+3.  Créer un fichier `_<nom-du-composant>.scss` dans le dossier de style correspondant
+4.  Ajouter le fichier de style à l'index dans le même dossier
+    Exemple: `@import 'hero';`
 
-### `npm run dev`
+> Il est parfois nécessaire de redémarrer next (`npm run dev`) pour que les nouveaux fichiers soient pris en compte
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Nomenclature des classes
 
-The page will reload if you make edits.<br>
-You will also see any errors in the console.
+La nomenclature se base sur le concept ABEM (https://css-tricks.com/abem-useful-adaptation-bem/) avec quelques optimisations:
 
-### `npm run build`
+* La toute première lettre, en minuscule, correspond au type de composant
+  * `p`: page
+  * `t`: template
+  * `o`: organism
+  * `m`: molecule
+  * `a`: atom
+* Ensuite vient le nom du composant en CamelCase : `Hero`, `MainBanner`, `FooterMobile`
+* Si c'est un sous élément de composant, on rajoute le nom du sous composant de la forme `_<nom>` (un seul underscore)
+* Pour les modifiers, on utilise un nom de classe supplémentaire plutôt que d'utiliser `--`.
 
-Builds the app for production to the `.next` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Exemple:
 
-### `npm run start`
-
-Starts the application in production mode.
-The application should be compiled with \`next build\` first.
-
-See the section in Next docs about [deployment](https://github.com/zeit/next.js/wiki/Deployment) for more information.
-
-## Using CSS
-
-[`styled-jsx`](https://github.com/zeit/styled-jsx) is bundled with next to provide support for isolated scoped CSS. The aim is to support "shadow CSS" resembling of Web Components, which unfortunately [do not support server-rendering and are JS-only](https://github.com/w3c/webcomponents/issues/71).
-
-```jsx
-export default () => (
-  <div>
-    Hello world
-    <p>scoped!</p>
-    <style jsx>{`
-      p {
-        color: blue;
-      }
-      div {
-        background: red;
-      }
-      @media (max-width: 600px) {
-        div {
-          background: blue;
-        }
-      }
-    `}</style>
+```html
+<div className="oNewsGrid">
+  <div className="oNewsGrid_title">Title</div>
+  <div className="oNewsGrid_content">
+    <div className="oNewsGrid_column one">First column</div>
+    <div className="oNewsGrid_column two">Second column</div>
   </div>
-)
+</div>
 ```
 
-Read more about [Next's CSS features](https://github.com/zeit/next.js#css).
+## Gestion des classes dans le SCSS
 
-## Adding Components
+Dans les feuilles de styles, on crée un fichier pour chaque composant.
+Avec les possibilités offertes par SCSS/SASS, il est facile d'écrire le style de chaque sous-éléments:
 
-We recommend keeping React components in `./components` and they should look like:
+```SCSS
+.oNewsGrid {
+  width: 100%;
 
-### `./components/simple.js`
-
-```jsx
-const Simple = () => (
-  <div>Simple Component</div>
-)
-
-export default Simple // don't forget to export default!
-```
-
-### `./components/complex.js`
-
-```jsx
-import { Component } from 'react'
-
-class Complex extends Component {
-  state = {
-    text: 'World'
+  &_title {
+    color: red;
   }
 
-  render () {
-    const { text } = this.state
-    return <div>Hello {text}</div>
+  &_content {
+    display:flex;
+    flex-wrap: wrap;
+    width: 50vw;
+    margin: 0 auto;
   }
-}
 
-export default Complex // don't forget to export default!
-```
+  &_column {
+    flex-grow: 1;
+  }
 
-## Fetching Data
+  &_column.one {
+    width: 75%;
 
-You can fetch data in `pages` components using `getInitialProps` like this:
-
-### `./pages/stars.js`
-
-```jsx
-const Page = (props) => <div>Next stars: {props.stars}</div>
-
-Page.getInitialProps = async ({ req }) => {
-  const res = await fetch('https://api.github.com/repos/zeit/next.js')
-  const json = await res.json()
-  const stars = json.stargazers_count
-  return { stars }
-}
-
-export default Page
-```
-
-For the initial page load, `getInitialProps` will execute on the server only. `getInitialProps` will only be executed on the client when navigating to a different route via the `Link` component or using the routing APIs.
-
-_Note: `getInitialProps` can **not** be used in children components. Only in `pages`._
-
-Read more about [fetching data and the component lifecycle](https://github.com/zeit/next.js#fetching-data-and-component-lifecycle)
-
-## Custom Server
-
-Want to start a new app with a custom server? Run `create-next-app --example customer-server custom-app`
-
-Typically you start your next server with `next start`. It's possible, however, to start a server 100% programmatically in order to customize routes, use route patterns, etc
-
-This example makes `/a` resolve to `./pages/b`, and `/b` resolve to `./pages/a`:
-
-```jsx
-const { createServer } = require('http')
-const { parse } = require('url')
-const next = require('next')
-
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
-
-app.prepare().then(() => {
-  createServer((req, res) => {
-    // Be sure to pass `true` as the second argument to `url.parse`.
-    // This tells it to parse the query portion of the URL.
-    const parsedUrl = parse(req.url, true)
-    const { pathname, query } = parsedUrl
-
-    if (pathname === '/a') {
-      app.render(req, res, '/b', query)
-    } else if (pathname === '/b') {
-      app.render(req, res, '/a', query)
-    } else {
-      handle(req, res, parsedUrl)
+    @include bp(small) {
+      width: 100%;
     }
-  })
-  .listen(3000, (err) => {
-    if (err) throw err
-    console.log('> Ready on http://localhost:3000')
-  })
-})
+  }
+
+  &_column.two {
+    width: 25%;
+  }
+}
 ```
 
-Then, change your `start` script to `NODE_ENV=production node server.js`.
+## Récupération des données
 
-Read more about [custom server and routing](https://github.com/zeit/next.js#custom-server-and-routing)
+Pour simplifier, l'application récupère des données à partir du fichier `data-backend.json`.
+Pour simuler un backend, un composant HOC (High Order Component) nommé _getData_ prend ce fichier et
+le fourni à la page `pages/index.js` en tant que `props`.
+Ainsi, l'objet `data` contient toutes les données de l'application.
 
-## Syntax Highlighting
+## Fichiers statiques
 
-To configure the syntax highlighting in your favorite text editor, head to the [relevant Babel documentation page](https://babeljs.io/docs/editors) and follow the instructions. Some of the most popular editors are covered.
+Il est possible de mettre des fichiers statiques (images, fonts, icons...) dans le dossier `static`.
+Grâce à NextJS, ils seront disponible sur `/static/<nom-du-fichier>`
 
-## Deploy to Now
+## Configuration supplémentaire
 
-[now](https://zeit.co/now) offers a zero-configuration single-command deployment.
-
-1. Install the `now` command-line tool either via the recommended [desktop tool](https://zeit.co/download) or via node with `npm install -g now`.
-
-2. Run `now` from your project directory. You will see a **now.sh** URL in your output like this:
-
-    ```
-    > Ready! https://your-project-dirname-tpspyhtdtk.now.sh (copied to clipboard)
-    ```
-
-    Paste that URL into your browser when the build is complete, and you will see your deployed app.
-
-You can find more details about [`now` here](https://zeit.co/now).
-
-## Something Missing?
-
-If you have ideas for how we could improve this readme or the project in general, [let us know](https://github.com/segmentio/create-next-app/issues) or [contribute some!](https://github.com/segmentio/create-next-app/edit/master/lib/templates/default/README.md)
+Cette application se repose largement sur le fonctionnement de NextJS.
+Pour plus de détails et configuration plus fine, voir la [doc de NextJS](/NEXTJS.md).

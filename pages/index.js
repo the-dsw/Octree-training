@@ -10,6 +10,7 @@ const Home = ({ data }) => {
       <Head title="Home" />
       <div className="pHome">
         <Banner {...data} />
+        {"Place Footer here"}
       </div>
     </div>
   );
