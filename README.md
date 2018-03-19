@@ -11,6 +11,15 @@ Le résultat doit:
 * Être valide selon les règles définies dans le fichier `.eslintrc`
 * Respecter la nomenclature des classes définie dans ce fichier
 
+Merci de prendre en compte que:
+
+* Dans le bloc _Services_, par défaut, on affiche que 3 liens. Lorsqu'on clique sur les **...**, le panneau s'ouvre pour révéler les autres liens.
+* Le panneau doit s'ouvrir avec une animation "accordéon"
+* Il n'est pas nécessaire de faire la gestion des langues. Les boutons "FR" / "EN" ne sont que des liens.
+* Évitez à tout prix d'utiliser les règles CSS suivantes: `float`, `position:absolute`, `position: relative`.
+  Préférez l'utilisation de CSS Flex et CSS Grid.
+* Toutes les assets nécessaires sont disponibles sur le projet Invision
+
 # Quick-start
 
 ```bash
@@ -30,8 +39,8 @@ avec des _pages_ composées de 4 niveaux de composants:
 
 * _atom_: Micro-composant (visuel ou fonctionnel) assurant une unique fonction (Exemples: image, paragraph, title, icon)
 * _molecule_: Composant relativement petit composé d'atomes (Exemples: carte, button)
-* _organisms_: Bloc visuel composant une page, constitué de molecules (Exemples: grille de cartes, formulaire de contact)
-* _templates_: Bloc logique d'organismes. Parfois facultatif, on peut utiliser des organismes directement au niveau des page (Exemples: footer, navbar, bannière).
+* _organism_: Bloc visuel composant une page, constitué de molecules (Exemples: grille de cartes, formulaire de contact)
+* _template_: Bloc logique d'organismes. Parfois facultatif, on peut utiliser des organismes directement au niveau des page (Exemples: footer, navbar, bannière).
   Un template peut être vu comme une strate / section de page.
 
 > L'objectif du découpage est d'avoir des fichiers / composants les plus génériques possibles pour ne pas

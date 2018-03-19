@@ -1,7 +1,58 @@
 {
   "url": "https://octree.ch",
+  "logo": "https://octree.ch/themes/live-octree/images/logo.svg",
   "banner": {
     "image": "/static/banner-hero.png",
     "alt": "Banner Hero"
+  },
+  "blocks": {
+    "contact": {
+      "title": "Contact",
+      "email": "hello@octree.ch",
+      "tel": "+41 022 436 87 38",
+      "address": {
+        "name": "Octree sarl",
+        "street": "17a Eugène-Marziano",
+        "country": "CH",
+        "NP": "1227",
+        "city": "les Acacias"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "links": [
+        {
+          "name": "Applications",
+          "link": "/apps"
+        },
+        {
+          "name": "Chatbots",
+          "link": "/chatbots"
+        },
+        {
+          "name": "Crazy new tech °3",
+          "link": "/crazy-3"
+        },
+        {
+          "name": "Crazy new tech °5",
+          "link": "/crazy-5"
+        },
+        {
+          "name": "Crazy new tech °6",
+          "link": "/crazy-6"
+        }
+      ]
+    }
+  },
+  "links": ["Blog@https://octree.ch/blog", "Join us@https://octree.ch/contact"],
+  "lang": {
+    "fr": "https://octree.ch/fr",
+    "en": "https://octree.ch/en"
+  },
+  "socials": {
+    "twitter": "https://twitter.com/octree_gva",
+    "facebook": "https://www.facebook.com/octree.gva/",
+    "linkedin": "https://www.linkedin.com/company/14974641/",
+    "github": "https://github.com/octree-gva"
   }
 }
