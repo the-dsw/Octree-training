@@ -8,7 +8,7 @@ Le résultat doit:
 
 * Être **responsive**
 * Avoir le moins possible de code mort / inutile
-* Être valide selon les règles définies dans le fichier `.eslintrc`
+* Être valide selon les règles définies dans le fichier `.eslintrc` (Pour tester: `npm run lint`)
 * Respecter la nomenclature des classes définie dans ce fichier
 
 Merci de prendre en compte que:
