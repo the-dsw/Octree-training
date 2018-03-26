@@ -33,6 +33,9 @@
   mask: url(/static/dots-horizontal.svg) no-repeat 50% 50%;
   -webkit-mask-size: cover;
   mask-size: cover;
+  @include bp(small) {
+    display: none;
+  }
 }
 .aIcon-arrowUp {
   width: 29px;

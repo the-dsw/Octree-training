@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Icon} from '../atoms';
+import {Collapsible} from '../molecules';
 
 /**
- * class Services
+ * class Service
  */
 class Service extends Component {
   /**
@@ -17,12 +18,23 @@ class Service extends Component {
   renderServices = () => {
     const services = this.props.data.blocks.services.links.map((link, i) => {
       return (
-        <div key={i}>
+        <div className="mServices-list" key={i}>
           <a href={link.link}>{link.name}</a>
         </div>
       );
     });
     return services;
+  };
+
+  renderServicesLast = () => {
+    const services = this.props.data.blocks.services.links.map((link, i) => {
+      return (
+        <div key={i}>
+          <a href={link.link}>{link.name}</a>
+        </div>
+      );
+    });
+    return services.splice(3);
   };
   /**
    * It returns data services
@@ -30,7 +42,12 @@ class Service extends Component {
    * @return {obj} data
    */
   render() {
-    return <div>{this.renderServices()}</div>;
+    return (
+      <div>
+        {this.renderServices()}
+        <Collapsible>{this.renderServicesLast()}</Collapsible>
+      </div>
+    );
   }
 }
 
