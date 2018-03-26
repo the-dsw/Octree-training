@@ -1,0 +1,17 @@
+.mPanel {
+  .mPanel-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    @include bp(small) {
+      max-height: auto;
+      overflow: initial;
+      margin-bottom: 40px;
+    }
+  }
+  &.is-expanded {
+    .mPanel-collapse {
+      max-height: 200px;
+    }
+  }
+}
