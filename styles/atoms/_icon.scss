@@ -1,0 +1,56 @@
+.aIcon {
+  display: inline-block;
+  margin-right: 35px;
+}
+.aIcon-facebook {
+  width: 12px;
+  height: 24px;
+  -webkit-mask: url(/static/facebook.svg) no-repeat 50% 50%;
+  mask: url(/static/facebook.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+.aIcon-twitter {
+  width: 29px;
+  height: 23px;
+  -webkit-mask: url(/static/twitter.svg) no-repeat 50% 50%;
+  mask: url(/static/twitter.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+.aIcon-github {
+  width: 29px;
+  height: 23px;
+  -webkit-mask: url(/static/github-circle.svg) no-repeat 50% 50%;
+  mask: url(/static/github-circle.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+.aIcon-dots {
+  width: 16px;
+  height: 4px;
+  -webkit-mask: url(/static/dots-horizontal.svg) no-repeat 50% 50%;
+  mask: url(/static/dots-horizontal.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+.aIcon-arrowUp {
+  width: 29px;
+  height: 23px;
+  -webkit-mask: url(/static/arrow-up.svg) no-repeat 50% 50%;
+  mask: url(/static/arrow-up.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+.aIcon-web {
+  width: 24px;
+  height: 24px;
+  -webkit-mask: url(/static/web.svg) no-repeat 50% 50%;
+  mask: url(/static/web.svg) no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.aIcon-white { background-color: $white; }
+
+

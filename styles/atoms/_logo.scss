@@ -1,0 +1,17 @@
+.aLogo {
+  width: 100%;
+  height: auto;
+
+  &_img {
+    width: 250px;
+    height: auto;
+  }
+  @include bp(small) {
+    text-align: left;
+    padding-left: 32px;
+    &_img {
+      width: 150px;
+      height: auto;
+    }
+  }
+}

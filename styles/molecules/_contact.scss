@@ -1,0 +1,9 @@
+.mInfo {
+  @include bp(small) {
+    text-align: left;
+    padding-left: 32px; 
+  }
+}
+.mContact {
+  margin-bottom: 24px;  
+}

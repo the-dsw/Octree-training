@@ -1,0 +1,35 @@
+
+.mFirst {
+  margin-bottom: 64px;
+  @include bp(small) {
+    display: none;
+  }
+}
+.mLang {
+  @include bp(small) {
+   text-align: left;
+  }
+}
+
+.mIcon {
+  display: inline-flex;
+  margin-right: 35px;
+  &_hide {
+    display: none;
+    @include bp(small) {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: -30px;
+      padding-right: 5px;
+     }
+   
+  }
+}
+
+.mIcon_icon {
+  display: inline-block;
+  margin-right: 35px;
+  @include bp(small) {
+    display: none;
+  }
+}
