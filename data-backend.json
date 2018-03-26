@@ -44,7 +44,7 @@
       ]
     }
   },
-  "links": ["Blog@https://octree.ch/blog", "Join us@https://octree.ch/contact"],
+  "links": ["Blog@https://octree.ch/blog", "Join us@https://octree.ch/#Contact"],
   "lang": {
     "fr": "https://octree.ch/fr",
     "en": "https://octree.ch/en"
